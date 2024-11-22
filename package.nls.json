@@ -1,0 +1,4 @@
+{
+	"ext.config.pintBinPath": "Path to the executable **pint** binary. Example: `~/.composer/vendor/bin/pint`.",
+	"ext.config.pintConfigPath": "Path to default **pint.json** file."
+}

@@ -1,0 +1,73 @@
+{
+	"name": "laravel-pint-fixer",
+	"displayName": "Laravel Pint Fixer",
+	"description": "Integrates Laravel Pint into your VSCode projects for automatic code formatting",
+	"publisher": "evgenius33",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/evgenius33/vscode-laravel-pint-fixer"
+	},
+	"bugs": "https://github.com/evgenius33/vscode-laravel-pint-fixer/issues",
+	"icon": "images/icon.png",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.95.0"
+	},
+	"categories": [
+		"Formatters"
+	],
+	"keywords": [
+		"formatter",
+		"php",
+		"code formatting",
+		"code styling",
+		"laravel",
+		"laravel pint"
+	],
+	"activationEvents": [
+		"onLanguage:php"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [],
+		"configuration": {
+			"title": "Laravel Pint Fixer Configuration options",
+			"type": "object",
+			"properties": {
+				"laravel-pint-fixer.pintBinPath": {
+					"scope": "resource",
+					"type": "string",
+					"default": "",
+					"markdownDescription": "%ext.config.pintBinPath%"
+				},
+				"laravel-pint-fixer.pintConfigPath": {
+					"scope": "resource",
+					"type": "string",
+					"default": "",
+					"markdownDescription": "%ext.config.pintConfigPath%"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src",
+		"test": "vscode-test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^10.0.9",
+		"@types/node": "20.x",
+		"@types/vscode": "^1.95.0",
+		"@typescript-eslint/eslint-plugin": "^8.10.0",
+		"@typescript-eslint/parser": "^8.7.0",
+		"@vscode/test-cli": "^0.0.10",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.13.0",
+		"eslint-plugin-simple-import-sort": "^12.1.1",
+		"typescript": "^5.6.3",
+		"typescript-eslint": "^8.15.0"
+	}
+}
