@@ -27,16 +27,20 @@ export class SettingsService {
 			const workspacePath = workspace.workspaceFolders[0].uri.fsPath;
 			const pintConfigFilePath = `${workspacePath}/pint.json`;
 
-			return existsSync(pintConfigFilePath) ? pintConfigFilePath : false;
-		} else {
-			const pintConfigFilePath = this.settings?.get<string>('pintConfigPath', '');
-
-			if (pintConfigFilePath && pintConfigFilePath.length > 0) {
-				return existsSync(pintConfigFilePath) ? pintConfigFilePath : false;
+			if (existsSync(pintConfigFilePath)) {
+				return pintConfigFilePath;
 			}
-
-			return false;
 		}
+
+		const pintConfigFilePath = this.settings?.get<string>('pintConfigPath', '');
+
+		if (pintConfigFilePath && pintConfigFilePath.length > 0) {
+			if (existsSync(pintConfigFilePath)) {
+				return pintConfigFilePath;
+			}
+		}
+
+		return false;
 	}
 
 	public registerDisposables(): Disposable[] {
